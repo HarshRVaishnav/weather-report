@@ -1,6 +1,7 @@
 package com.dice.Weather_Report.controller;
 
 import com.dice.Weather_Report.service.WeatherService;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +37,7 @@ class WeatherReportController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @GetMapping("/forecastSummery/{city}")
-    public ResponseEntity<String> getForecastSummary(@PathVariable @NotNull String city) {
+    public ResponseEntity<String> getForecastSummary(@PathVariable @NotNull @NotBlank String city) {
         return new ResponseEntity<>(weatherService.getForecastSummary(city), HttpStatus.OK);
     }
 
@@ -49,7 +50,7 @@ class WeatherReportController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @GetMapping("/hourlyForecast/{city}")
-    public ResponseEntity<?> getHourlyForecast(@PathVariable @NotNull  String city) {
+    public ResponseEntity<?> getHourlyForecast(@PathVariable @NotNull @NotBlank String city) {
         return new ResponseEntity<>(weatherService.getHourlyForecast(city), HttpStatus.OK);
     }
 
