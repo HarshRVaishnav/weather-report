@@ -23,7 +23,8 @@ public class CustomUserDetailService implements UserDetailsService
     @Autowired
     CustomerRepository customerRepository;
 
-    @Override public UserDetails loadUserByUsername(String username)
+    @Override
+    public UserDetails loadUserByUsername(String username)
     throws UsernameNotFoundException
     {
         Optional<Customer> user = customerRepository.findByEmail(username);

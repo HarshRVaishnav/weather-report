@@ -28,18 +28,21 @@ public class LoginController
     @PostMapping
     public ResponseEntity<String> login(@Validated @RequestBody LoginRequest request)
     {
+        System.err.println("user name ----------------->"+request.userName());
+
+        System.out.println(request.password());
         Authentication authenticate = authenticationProvider
                 .authenticate
-                (
-                        new UsernamePasswordAuthenticationToken
                         (
-                        request.userName(),
-                        request.password()
-                        )
-                );
+                                new UsernamePasswordAuthenticationToken
+                                        (
+                                                request.userName(),
+
+                                                request.password()
+                                        )
+                        );
 
         String token = jwtUtil.generateToken(request.userName());
-        return new ResponseEntity<>( " " , HttpStatus.CREATED);
+        return new ResponseEntity<>(token, HttpStatus.CREATED);
     }
-
 }

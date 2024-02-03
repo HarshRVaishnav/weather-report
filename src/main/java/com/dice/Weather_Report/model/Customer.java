@@ -2,7 +2,7 @@ package com.dice.Weather_Report.model;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +15,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer
+public class Customer   extends AuditStamp
 {
 
     @Id
@@ -23,11 +23,11 @@ public class Customer
     @Column(name = "customer_id")
     private Long id;
 
-    private String name;
+    private String userName;
 
     private String email;
 
-    @Column(name = "mobile_nx`umber")
+    @Column(name = "mobile_number")
     private String mobileNumber;
 
     private String pwd;

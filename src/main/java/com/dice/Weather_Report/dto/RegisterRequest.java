@@ -1,6 +1,13 @@
 package com.dice.Weather_Report.dto;
 
-public record RegisterRequest(String name, String email, String mobileNumber, String password)
+import javax.validation.constraints.NotBlank;
+
+public record RegisterRequest(
+        @NotBlank
+        String userName,
+        String email,
+        String mobileNumber,
+        @NotBlank String password)
 {
 
     // concise way to encapsulate immutable class

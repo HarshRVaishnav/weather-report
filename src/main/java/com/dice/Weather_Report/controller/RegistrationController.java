@@ -33,7 +33,7 @@ public class RegistrationController
         log.info("Start :Registration controller --> register");
         ResponseEntity response;
         Customer customer = Customer.builder()
-                .name(registerRequest.name())
+                .userName(registerRequest.userName())
                 .email(registerRequest.email())
                 .mobileNumber(registerRequest.mobileNumber())
                 .pwd(registerRequest.password())

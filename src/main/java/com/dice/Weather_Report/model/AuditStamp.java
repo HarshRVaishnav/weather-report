@@ -1,7 +1,6 @@
 package com.dice.Weather_Report.model;
 
 
-import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -9,6 +8,7 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.Version;
 
+import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 @Data
@@ -32,4 +32,4 @@ public class AuditStamp
     @Version                    // optimistic lock to handle concurrent updates on entities
     private int version;
 
-}
+    }

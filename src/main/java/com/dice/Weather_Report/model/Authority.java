@@ -1,20 +1,26 @@
 package com.dice.Weather_Report.model;
 
 
-import jakarta.persistence.*;
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
+
+
 
 @Data
 @Entity
-public class Authority  extends AuditStamp
+public class Authority extends AuditStamp
 {
-           @Id
-           @GeneratedValue(strategy = GenerationType.IDENTITY)
-           private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-          private String name;
+    private String name;
 
 
-          private Customer customer;
+    @ManyToOne()
+    @JsonBackReference
+    private Customer customer;
 
 }
